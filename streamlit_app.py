@@ -21,6 +21,8 @@ with st.echo():
     from webdriver_manager.chrome import ChromeDriverManager
     from lxml import html
 
+    thingerauth = st.secrets["secrets"]['THINGER_AUTH']
+    
     # @st.cache_resource
     def get_driver():
         x = ChromeDriverManager(driver_version="116.0.5845.96").install()
@@ -31,9 +33,11 @@ with st.echo():
     options.add_argument('--disable-gpu')
     options.add_argument('--headless')
 
+    
+    
     driver = get_driver()
     # driver.get("http://example.com")
-    driver.get("https://hifish.serv00.net/")
+    driver.get(f"https://console.thinger.io/dashboards/ESP32?authorization={thingerauth}")
 
     # st.code(driver.page_source)
 
