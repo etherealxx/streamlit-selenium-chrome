@@ -15,7 +15,7 @@ options = Options()
 options.add_argument('--disable-gpu')
 options.add_argument('--headless')
 
-chart = st.line_chart("", use_container_width=True)
+chart = st.line_chart([], use_container_width=True)
 temperature_values = []
 
 def main():
@@ -36,7 +36,7 @@ def main():
 
         temperature_values.append(pure_temperature)
 
-        chart = st.line_chart(temperature_values, use_container_width=True)
+        chart = st.line_chart(data=temperature_values, use_container_width=True)
 
         st.write("Last Fetched Temperature:", pure_temperature)
 
