@@ -42,7 +42,7 @@ def main():
         temperature_data.append({'Time': current_time, 'Temperature': pure_temperature})
 
         temperature_df = pd.DataFrame(temperature_data)
-        chart.line_chart(data=temperature_df.set_index('Time'))
+        chart.line_chart(data=temperature_df.set_index('Time')['Temperature'])
 
         st.write(temperature_df)
 
