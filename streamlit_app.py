@@ -38,7 +38,7 @@ def main():
         target_temperature = driver.find_element("xpath", temperature_xpath)
         pure_temperature = float(str(target_temperature.text).split("\n")[1].replace("°C", "").strip())
 
-        current_time = datetime.now()
+        current_time = str(datetime.now().time())
         temperature_data.append({'Time': current_time, 'Temperature': pure_temperature})
 
         temperature_df = pd.DataFrame(temperature_data)
