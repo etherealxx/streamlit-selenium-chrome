@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 """
 ## Web scraping on Streamlit Cloud with Selenium
@@ -10,33 +9,6 @@ This is a minimal, reproducible example of how to scrape the web with Selenium a
 
 Fork this repo, and edit `/streamlit_app.py` to customize this app to your heart's desire. :heart:
 """
-
-def check_for_changes(driver, prev_texts):
-    while True:
-        driver.get("https://psyteam-fc61f.web.app/")
-        
-        # Extract the text content of the target elements
-        xpath1 = "/html/body/div/main/div[2]/div[2]/div[1]/h2"
-        xpath2 = "/html/body/div/main/div[2]/div[2]/div[2]/h2"
-        
-        element1 = driver.find_element(By.XPATH, xpath1)
-        element2 = driver.find_element(By.XPATH, xpath2)
-        
-        text1 = element1.text
-        text2 = element2.text
-        
-        if text1 != prev_texts[0] or text2 != prev_texts[1]:
-            prev_texts[0] = text1
-            prev_texts[1] = text2
-            
-            # Perform actions when text changes
-            st.write("Text 1 changed:", text1)
-            st.write("Text 2 changed:", text2)
-            
-            # Perform your get page source logic here
-            # ...
-
-        time.sleep(5)  # Wait for 10 seconds before checking again
 
 with st.echo():
     from selenium import webdriver
@@ -66,7 +38,7 @@ with st.echo():
 
     # wait = WebDriverWait(driver, 10)
     # wait.until(EC.presence_of_element_located((By.XPATH, "//h2[contains(text(), 'Loding...')]")))
-    driver.implicitly_wait(7)
+    driver.implicitly_wait(10)
 
     # Get the HTML content after the page has loaded
     html_content = driver.page_source
@@ -93,6 +65,3 @@ with st.echo():
             cleaned_text = node.strip()
             if cleaned_text:
                 st.write("Text:", cleaned_text, "\nParent Element XPath:", parent_xpath)
-    
-    prev_texts = ["", ""]
-    check_for_changes(driver, prev_texts)
