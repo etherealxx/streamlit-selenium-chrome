@@ -16,7 +16,7 @@ with st.echo():
     from selenium.webdriver.chrome.service import Service
     from webdriver_manager.chrome import ChromeDriverManager
 
-    @st.cache_resource
+    # @st.cache_resource
     def get_driver():
         return webdriver.Chrome(service=Service(ChromeDriverManager(version="116.0.5845.96").install()), options=options)
 
