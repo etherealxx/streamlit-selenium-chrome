@@ -36,7 +36,7 @@ def main():
 
         temperature_values.append(pure_temperature)
 
-        chart = st.line_chart(data=temperature_values, use_container_width=True)
+        chart.add_rows(data=pure_temperature)
 
         st.write("Last Fetched Temperature:", pure_temperature)
 
