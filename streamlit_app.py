@@ -32,7 +32,7 @@ with st.echo():
 
     driver = get_driver()
     # driver.get("http://example.com")
-    driver.get("https://psyteam-fc61f.web.app/")
+    driver.get("https://hifish.serv00.net/")
 
     # st.code(driver.page_source)
 
