@@ -94,4 +94,5 @@ with st.echo():
             if cleaned_text:
                 st.write("Text:", cleaned_text, "\nParent Element XPath:", parent_xpath)
     
-    check_for_changes(driver)
+    prev_texts = ["", ""]
+    check_for_changes(driver, prev_texts)
