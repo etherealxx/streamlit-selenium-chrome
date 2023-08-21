@@ -1,5 +1,5 @@
 import streamlit as st
-
+import time
 """
 ## Web scraping on Streamlit Cloud with Selenium
 
@@ -38,7 +38,8 @@ with st.echo():
 
     # wait = WebDriverWait(driver, 10)
     # wait.until(EC.presence_of_element_located((By.XPATH, "//h2[contains(text(), 'Loding...')]")))
-    driver.implicitly_wait(20)
+    driver.implicitly_wait(10)
+    time.sleep(10)
 
     # Get the HTML content after the page has loaded
     html_content = driver.page_source
