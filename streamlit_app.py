@@ -38,7 +38,7 @@ with st.echo():
 
     # wait = WebDriverWait(driver, 10)
     # wait.until(EC.presence_of_element_located((By.XPATH, "//h2[contains(text(), 'Loding...')]")))
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(20)
 
     # Get the HTML content after the page has loaded
     html_content = driver.page_source
