@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import pandas as pd
+import numpy as np
 
 # Function to get the driver
 def get_driver():
@@ -36,7 +38,7 @@ def main():
 
         temperature_values.append(pure_temperature)
 
-        chart.add_rows(data=pure_temperature)
+        chart.add_rows(data=pd.DataFrame({'y': pure_temperature}))
 
         st.write("Last Fetched Temperature:", pure_temperature)
 
