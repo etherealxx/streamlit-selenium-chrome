@@ -44,7 +44,7 @@ def main():
         temperature_df = pd.DataFrame(temperature_data)
         chart.line_chart(data=temperature_df.set_index('Time'))
 
-        print(temperature_df)
+        st.write(temperature_df)
 
         st.write("Last Fetched Temperature:", pure_temperature)
 
