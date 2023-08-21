@@ -18,7 +18,7 @@ with st.echo():
 
     # @st.cache_resource
     def get_driver():
-        x = ChromeDriverManager(version="116.0.5845.96").install()
+        x = ChromeDriverManager(driver_version="116.0.5845.96").install()
         service = Service(x)
         return webdriver.Chrome(service=service, options=options)
 
