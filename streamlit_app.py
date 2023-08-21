@@ -16,7 +16,7 @@ with st.echo():
     from selenium.webdriver.chrome.service import Service
     from webdriver_manager.chrome import ChromeDriverManager
 
-    @st.experimental_singleton
+    @st.cache_resource
     def get_driver():
         return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
@@ -25,6 +25,7 @@ with st.echo():
     options.add_argument('--headless')
 
     driver = get_driver()
-    driver.get("http://example.com")
+    driver.get("https://github.com/lushan88a/google_trans_new")
+    data = driver.find_element_by_xpath('/html/body/div/main/div[2]/div[2]/div[1]/h2/p').text
 
-    st.code(driver.page_source)
+    st.write(data)
