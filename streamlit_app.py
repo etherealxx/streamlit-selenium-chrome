@@ -44,9 +44,9 @@ time.sleep(5)
 # # Get the HTML content after the page has loaded
 # html_content = driver.page_source
 temperature_xpath = "/html/body/div/main/div[2]/div[2]/div[1]/p"
-target_temperature = driver.find_element_by_xpath(temperature_xpath)
+target_temperature = driver.find_element("xpath", temperature_xpath)
 condition_xpath = "/html/body/div/main/div[2]/div[2]/div[2]/p"
-target_condition = driver.find_element_by_xpath(temperature_xpath)
+target_condition = driver.find_element("xpath", condition_xpath)
 
 # Get the text of the element
 
