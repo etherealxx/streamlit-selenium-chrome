@@ -38,7 +38,7 @@ def main():
 
         temperature_values.append(pure_temperature)
 
-        chart.add_rows(data=pd.DataFrame({'y': pure_temperature}))
+        chart.line_chart(data=temperature_values)
 
         st.write("Last Fetched Temperature:", pure_temperature)
 
