@@ -27,7 +27,10 @@ with st.echo():
     options.add_argument('--headless')
 
     driver = get_driver()
-    driver.get("https://github.com/lushan88a/google_trans_new")
-    data = driver.find_element_by_xpath('/html/body/div/main/div[2]/div[2]/div[1]/h2/p').text
+    # driver.get("https://github.com/lushan88a/google_trans_new")
+    # data = driver.find_element_by_xpath('/html/body/div/main/div[2]/div[2]/div[1]/h2/p').text
 
-    st.write(data)
+    # st.write(data)
+    driver.get("http://example.com")
+
+    st.code(driver.page_source)
