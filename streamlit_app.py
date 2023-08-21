@@ -37,7 +37,7 @@ while True:
     try:
         target_temperature = driver.find_element(By.XPATH, temperature_xpath)
         target_condition = driver.find_element(By.XPATH, condition_xpath)
-        temperature_data.append((time.time(), float(target_temperature.text)))
+        temperature_data.append((time.time(), float(target_temperature.text.split()[1].replace("°C",""))))
         
         st.write("Temperature:", target_temperature.text)
         st.write("Condition:", target_condition.text)
