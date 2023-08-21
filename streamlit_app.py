@@ -6,6 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import numpy as np
+from datetime import datetime
+
 
 # Function to get the driver
 def get_driver():
@@ -17,8 +19,8 @@ options = Options()
 options.add_argument('--disable-gpu')
 options.add_argument('--headless')
 
-chart = st.line_chart([], use_container_width=True)
-temperature_values = []
+chart = st.line_chart(pd.DataFrame(columns=['Time', 'Temperature']), use_container_width=True)
+temperature_data = []
 
 def main():
     global chart
@@ -36,9 +38,11 @@ def main():
         target_temperature = driver.find_element("xpath", temperature_xpath)
         pure_temperature = float(str(target_temperature.text).split("\n")[1].replace("°C", "").strip())
 
-        temperature_values.append(pure_temperature)
+        current_time = datetime.now()
+        temperature_data.append({'Time': current_time, 'Temperature': pure_temperature})
 
-        chart.line_chart(data=temperature_values)
+        temperature_df = pd.DataFrame(temperature_data)
+        chart.line_chart(data=temperature_df.set_index('Time'))
 
         st.write("Last Fetched Temperature:", pure_temperature)
 
