@@ -37,8 +37,8 @@ with st.echo():
     
     driver = get_driver()
     # driver.get("http://example.com")
-    driver.get(f"https://console.thinger.io/dashboards/ESP32?authorization={thingerauth}")
-
+    # driver.get(f"https://console.thinger.io/dashboards/ESP32?authorization={thingerauth}")
+    driver.get("https://thingspeak.com/channels/2246150")
     # st.code(driver.page_source)
 
     # wait = WebDriverWait(driver, 10)
